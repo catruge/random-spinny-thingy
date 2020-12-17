@@ -40,7 +40,8 @@ body {
   transform-origin: center var(--half-width);
   border-top: var(--width) solid darkslategray;
   box-sizing: border-box;
-  animation: fadein 1s;
+  opacity: 0;
+  animation: fadein 500ms 500ms forwards;
 }
 
 #blade:hover {
