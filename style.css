@@ -1,0 +1,60 @@
+html {
+  --width: 50px;
+  --half-width: calc(var(--width) / 2);
+  --height: 200px;
+  --pivot-diameter: calc(var(--width) * 0.8);
+  --half-pivot-diameter: calc(var(--pivot-diameter) / 2);
+  --back: white;
+  --blade-back: orange;
+}
+
+html:hover {
+  --back: whitesmoke;
+}
+
+html:active {
+  --blade-back: crimson;
+}
+
+body {
+  background-color: var(--back);
+}
+
+#blade {
+  position: fixed;
+  top: calc(50% - var(--half-width));
+  left: calc(50% - var(--half-width));
+  width: var(--width);
+  height: var(--height);
+  background-color: var(--blade-back);
+  border-radius: var(--half-width);
+  transform-origin: center var(--half-width);
+  border-top: var(--width) solid darkslategray;
+  box-sizing: border-box;
+}
+
+#blade:hover {
+  --blade-back: yellowgreen;
+  transform: rotate(270deg);
+  border-top-color: whitesmoke;
+  border-top-width: var(--height);
+}
+
+#pivot {
+  position: fixed;
+  top: calc(50% - var(--half-pivot-diameter));
+  left: calc(50% - var(--half-pivot-diameter));
+  width: var(--pivot-diameter);
+  height: var(--pivot-diameter);
+  background-color: var(--back);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.fast {
+  transition-duration: 200ms;
+}
+
+.slow {
+  transition-duration: 1s;
+}
