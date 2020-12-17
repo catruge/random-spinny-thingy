@@ -16,17 +16,28 @@ html:active {
   --blade-back: crimson;
 }
 
-body {
-  background-color: var(--back);
-}
-
-@keyframes fadein {
+@keyframes in {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
   }
+}
+
+@keyframes out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+body {
+  background-color: var(--back);
+  opacity: 0;
+  animation: in 500ms 500ms forwards;
 }
 
 #blade {
@@ -40,8 +51,6 @@ body {
   transform-origin: center var(--half-width);
   border-top: var(--width) solid darkslategray;
   box-sizing: border-box;
-  opacity: 0;
-  animation: fadein 500ms 500ms forwards;
 }
 
 #blade:hover {
@@ -49,6 +58,7 @@ body {
   transform: rotate(270deg);
   border-top-color: whitesmoke;
   border-top-width: var(--height);
+  animation: out 1s step-end forwards;
 }
 
 #pivot {
